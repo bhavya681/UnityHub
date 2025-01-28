@@ -1,4 +1,3 @@
-// src/CartoonSelfie.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
@@ -93,7 +92,8 @@ const PomodoroTimer = () => {
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.3 }}
-        >         <div className="mb-6">
+        >
+          <div className="mb-6">
             <label htmlFor="apiKey" className="block text-gray-700 font-medium mb-2">Api Key <span className="text-sm text-gray-500">(Get it from <a href="https://www.cutout.pro/user/secret-key" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">here</a>)</span></label>
             <input
               type="text"
@@ -112,12 +112,10 @@ const PomodoroTimer = () => {
             />
           </div>
 
-
           <motion.button
             onClick={generateCartoonSelfie}
             disabled={loading}
-            className={`w-full py-2 px-4 rounded text-white ${loading ? 'bg-gray-500' : 'bg-blue-500 hover:bg-blue-700'
-              } transition duration-200`}
+            className={`w-full py-2 px-4 rounded text-white ${loading ? 'bg-gray-500' : 'bg-blue-500 hover:bg-blue-700'} transition duration-200`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -135,8 +133,7 @@ const PomodoroTimer = () => {
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
-                  {' '}
-                  here
+                  {' '}here
                 </a>
                 .
               </p>
@@ -146,11 +143,16 @@ const PomodoroTimer = () => {
             <div className="mt-4">
               <h4 className="text-gray-800 font-semibold">Generated Cartoon Selfie:</h4>
               <img src={resultUrl} alt="Cartoon Selfie" className="mt-2 max-w-full rounded shadow" />
+              <a
+                href={resultUrl}
+                download="cartoon_selfie.jpg"
+                className="block mt-4 text-center bg-green-500 hover:bg-green-700 text-white font-medium py-2 px-4 rounded shadow-lg transition duration-200"
+              >
+                Download Image
+              </a>
             </div>
           )}
         </motion.div>
-
-        {/* Help Section */}
 
       </motion.div>
     </div>

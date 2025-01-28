@@ -14,7 +14,7 @@ const Header = () => {
       {/* Main Header */}
       <header className="bg-gray-900 shadow-md fixed top-0 left-0 right-0 h-16 z-50 flex items-center px-4">
         <button
-          className="text-gray-700 p-2 hover:bg-gray-100 rounded-lg"
+          className="text-gray-100 p-2 hover:bg-gray-600 rounded-lg"
           onClick={toggleSidebar}
         >
           <svg

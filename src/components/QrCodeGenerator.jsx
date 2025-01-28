@@ -53,6 +53,13 @@ const QrCodeGenerator = () => {
     }
   };
 
+  const downloadImage = () => {
+    const link = document.createElement('a');
+    link.href = result;
+    link.download = 'processed-image.png'; // Customize the downloaded file name
+    link.click();
+  };
+
   return (
     <>
       <AiHeader />
@@ -119,9 +126,15 @@ const QrCodeGenerator = () => {
 
           {/* Result Section */}
           {result && (
-            <div className="mt-6">
+            <div className="mt-6 text-center">
               <h2 className="text-lg font-semibold text-gray-800 mb-2">Processed Image:</h2>
               <img src={result} alt="Processed" className="w-full rounded-lg shadow-md" />
+              <button
+                onClick={downloadImage}
+                className="mt-4 bg-blue-500 text-white py-2 px-6 rounded-lg shadow-md font-medium hover:bg-blue-600 transition duration-300"
+              >
+                Download Image
+              </button>
             </div>
           )}
         </div>
