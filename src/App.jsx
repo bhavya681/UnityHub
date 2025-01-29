@@ -268,9 +268,9 @@ const Home = () => {
                 Solutions
               </h3>
               <ul className="space-y-4">
-                <li><a href="#" className="text-sm hover:text-white transition-colors">Academic Tools</a></li>
-                <li><a href="#" className="text-sm hover:text-white transition-colors">Research Suite</a></li>
-                <li><a href="#" className="text-sm hover:text-white transition-colors">Collaboration Hub</a></li>
+                <li><a href="/dictionary" className="text-sm hover:text-white transition-colors">Academic Tools</a></li>
+                <li><a href="/news" className="text-sm hover:text-white transition-colors">Research Suite</a></li>
+                <li><a href="/cartoon-selfie" className="text-sm hover:text-white transition-colors">AI Tools</a></li>
               </ul>
             </div>
 
@@ -279,9 +279,9 @@ const Home = () => {
                 Resources
               </h3>
               <ul className="space-y-4">
-                <li><a href="#" className="text-sm hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="text-sm hover:text-white transition-colors">Academic Integrations</a></li>
-                <li><a href="#" className="text-sm hover:text-white transition-colors">API Reference</a></li>
+                <li><a href="/documentation" className="text-sm hover:text-white transition-colors">Documentation</a></li>
+                <li><a href="https://github.com/bhavya681/UnityHub" className="text-sm hover:text-white transition-colors">Contribute</a></li>
+             
               </ul>
             </div>
 
@@ -290,9 +290,22 @@ const Home = () => {
                 Connect
               </h3>
               <ul className="space-y-4">
-                <li><a href="#" className="text-sm hover:text-white transition-colors">LinkedIn</a></li>
-                <li><a href="#" className="text-sm hover:text-white transition-colors">ResearchGate</a></li>
-                <li><a href="#" className="text-sm hover:text-white transition-colors">Academic Partnerships</a></li>
+               
+                <li>
+                <a href="https://www.linkedin.com/in/bhavya-wade/" className="text-sm hover:text-white">
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/wade_bhavy55123" className="text-sm hover:text-white">
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/bhavya_wade/" className="text-sm hover:text-white">
+                    Instagram
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

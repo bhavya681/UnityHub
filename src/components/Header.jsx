@@ -8,7 +8,9 @@ import {
   PresentationChartBarIcon, DocumentTextIcon, SparklesIcon,
   UserGroupIcon, PhotoIcon, CurrencyDollarIcon
 } from "@heroicons/react/24/outline";
-import { Newspaper } from "@mui/icons-material";
+import { FaceRetouchingNatural, Newspaper, PhotoAlbumRounded, RemoveCircleOutline } from "@mui/icons-material";
+import { PhotoshopPicker } from "react-color";
+
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -32,6 +34,12 @@ const Header = () => {
       { to: "/password-generator", icon: LockClosedIcon, text: "Password Generator" },
       { to: "/dictionary", icon: BookOpenIcon, text: "Dictionary" },
       { to: "/url-shortener", icon: LinkIcon, text: "URL Shortener" }
+    ],
+    "Ai Tools":[
+      { to: "/cartoon-selfie", icon: PhotoAlbumRounded, text: "Cartoon Selfie" },
+      { to: "/face-cutout", icon: FaceRetouchingNatural, text: "Face Cutout" },
+      { to: "/remove-background", icon: RemoveCircleOutline, text: "Remove Background" },
+      { to: "/passport-photo", icon: PhotoIcon, text: "Passport-Photo" },
     ]
   };
 
