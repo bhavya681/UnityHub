@@ -31,178 +31,283 @@ import TimeZoneConverter from "./pages/TimeZoneConverter";
 import DataBreachChecker from "./pages/DataBreachChecker";
 import { motion } from 'framer-motion';
 import PassportPhoto from "./components/PassportPhoto";
+import { 
+  BookOpenIcon, ChartBarIcon, SparklesIcon, CheckCircleIcon,
+  DocumentMagnifyingGlassIcon, PhotoIcon, UserGroupIcon,
+  AcademicCapIcon, DocumentTextIcon, GlobeAltIcon, 
+  BriefcaseIcon, CodeBracketIcon
+} from '@heroicons/react/24/outline';
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gray-400">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <Link to="/">
-              <motion.div
-                className="transform hover:scale-105 transition-transform duration-300 animate-bounce"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <motion.img
-                  src={UnityHubLogo}
-                  alt="LearnNova"
-                  className="h-16 md:h-20 mx-auto bg-gray-400"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                />
-              </motion.div>
-            </Link>
-            <h1 className="mt-8 text-4xl md:text-6xl font-bold text-gray-900 leading-tight animate-fade-in">
-              Empower Your Workflow with <span className="text-blue-600">LearnNova</span>
-            </h1>
-            <p className="mt-6 text-xl md:text-2xl text-gray-600">
-              Your all-in-one platform for seamless productivity and collaboration
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/services"
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-lg font-semibold hover:bg-gradient-to-l from-blue-600 to-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg"
-              >
-                Explore Services
-              </Link>
-              <Link
-                to="/documentation"
-                className="px-8 py-4 bg-white text-blue-600 rounded-full text-lg font-semibold hover:bg-gray-50 border border-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg"
-              >
-                Learn More
+      {/* Modern Hero Section */}
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-indigo-900 overflow-hidden">
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+               <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="mb-12 flex justify-center">
+              <Link to="/">
+                <motion.div
+                  className="inline-block transform hover:scale-105 transition-transform duration-300"
+                  whileHover={{ rotate: [0, -10, 10, 0] }}
+                >
+                  <img
+                    src={UnityHubLogo}
+                    alt="LearnNova"
+                    className="h-24 md:h-32 mx-auto filter brightness-125"
+                  />
+                </motion.div>
               </Link>
             </div>
-          </div>
+         
+         
+          </motion.div>
         </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose LearnNova?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              {
-                title: "Seamless Integration",
-                description: "Connect and sync with your favorite tools effortlessly",
-                iconPath: "M12 6v6m0 0v6m0-6h6m-6 0H6",
-                iconColor: "text-blue-600",
-                bgColor: "bg-blue-100",
-              },
-              {
-                title: "Secure Cloud Storage",
-                description: "Access your data anywhere with enterprise-grade security",
-                iconPath: "M19 9l-7 7-7-7",
-                iconColor: "text-green-600",
-                bgColor: "bg-green-100",
-              },
-              {
-                title: "Advanced Analytics",
-                description: "Make data-driven decisions with powerful insights",
-                iconPath: "M13 10V3L4 14h7v7l9-11h-7z",
-                iconColor: "text-purple-600",
-                bgColor: "bg-purple-100",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="p-6 bg-white rounded-xl shadow-xl hover:shadow-xl transition-shadow duration-300"
+            
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+              Transform Your Academic Journey with <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-500">
+                AI-Powered Innovation
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-12">
+              Elevate your academic performance with our integrated suite of intelligent tools designed for modern learners
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link
+                to="/documentation"
+                className="px-8 py-4 bg-white/10 backdrop-blur-lg border-2 border-white/20 text-white rounded-xl text-lg font-semibold hover:bg-white/20 transition-all duration-300 shadow-xl"
               >
-                <div
-                  className={`w-16 h-16 mx-auto mb-6 ${feature.bgColor} rounded-full flex items-center justify-center`}
-                >
-                  <svg
-                    className={`w-8 h-8 ${feature.iconColor}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d={feature.iconPath}
-                    ></path>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-center mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-center">{feature.description}</p>
-              </div>
-            ))}
-          </div>
+                Platform Tour
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-teal-400/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-indigo-400/20 rounded-full blur-3xl animate-pulse delay-150" />
         </div>
       </section>
 
-      {/* AI Tools Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Academic Solutions Grid */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            AI Tools at Your Fingertips
-          </h2>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+              Integrated Academic Ecosystem
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Seamlessly connected tools that adapt to your learning journey
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { path: "/cartoon-selfie", label: "Cartoon Selfie" },
-              { path: "/face-cutout", label: "Face Cutout" },
-              { path: "/remove-background", label: "Remove Background" },
-              { path: "/passport-photo", label: 'Passport Photo' },
-            ].map((tool, index) => (
-              <div
+              {
+                category: "Study Mastery",
+                features: ["Smart Note-taking", "Exam Strategist", "Grade Optimizer"],
+                icon: AcademicCapIcon,
+                color: "from-teal-500 to-cyan-600"
+              },
+              {
+                category: "Productivity Suite",
+                features: ["Project Orchestrator", "Expense Analyst", "Study Scheduler"],
+                icon: BriefcaseIcon,
+                color: "from-blue-500 to-indigo-600"
+              },
+              {
+                category: "Creative Studio",
+                features: ["AI Visual Enhancer", "Interactive Whiteboard", "Presentation Architect"],
+                icon: CodeBracketIcon,
+                color: "from-purple-500 to-fuchsia-600"
+              },
+            ].map((category, index) => (
+              <motion.div
                 key={index}
-                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center"
+                whileHover={{ y: -10 }}
+                className="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
               >
-                <Link
-                  to={tool.path}
-                  className="block text-xl font-semibold text-blue-600 hover:underline"
-                >
-                  {tool.label}
-                </Link>
-                <p className="mt-4 text-gray-600">
-                  Try out our powerful AI tools to enhance your tasks.
-                </p>
-              </div>
+                <div className={`w-16 h-16 mb-6 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center`}>
+                  <category.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">{category.category}</h3>
+                <ul className="space-y-3">
+                  {category.features.map((feature, i) => (
+                    <li key={i} className="flex items-center text-gray-600">
+                      <CheckCircleIcon className="w-5 h-5 text-teal-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Testimonials Section */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">About LearnNova</h2>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              LearnNova is more than just a productivity platform. We're on a mission to transform how teams work together, making collaboration seamless and efficient. Our innovative solutions are designed to help you achieve more while doing less.
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+              Trusted by Global Academic Community
+            </h2>
+            <p className="text-xl text-gray-600">Join 750,000+ students across 2,300+ institutions</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                text: "UnityHub's intelligent tools helped me balance research and coursework effortlessly. The grade prediction system is remarkably accurate!",
+                author: "Dr. Emily Rodriguez",
+                role: "Postdoctoral Researcher",
+                university: "University of Cambridge"
+              },
+              {
+                text: "The collaborative features revolutionized our group projects. We reduced preparation time by 60% while improving output quality.",
+                author: "Raj Patel",
+                role: "Engineering Team Lead",
+                university: "MIT"
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="p-8 bg-white rounded-2xl shadow-lg border border-gray-100"
+              >
+                <div className="flex items-start mb-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full flex items-center justify-center text-white font-bold">
+                      {testimonial.author.charAt(0)}
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-lg font-bold text-gray-900">{testimonial.author}</h4>
+                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    <p className="text-sm text-indigo-600 font-medium">{testimonial.university}</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed">"{testimonial.text}"</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 bg-gradient-to-br from-blue-900 to-indigo-900">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8">
+              Begin Your Academic Revolution
+            </h2>
+            <p className="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
+              Experience the future of academic productivity - completely free forever
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link
+                to="/documentation"
+                className="px-8 py-4 bg-gradient-to-r from-teal-400 to-cyan-500 text-white rounded-xl text-lg font-semibold hover:from-teal-500 hover:to-cyan-600 transition-all duration-300 shadow-xl"
+              >
+                Explore Features
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Professional Footer */}
+      <footer className="bg-gradient-to-br from-gray-900 to-blue-900 text-gray-300">
+        <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div className="space-y-6">
+              <img
+                src={UnityHubLogo}
+                alt="UnityHub"
+                className="h-12 w-auto"
+              />
+              <p className="text-sm leading-relaxed">
+                Empowering academic excellence through innovative technology solutions
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <GlobeAltIcon className="h-6 w-6" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <DocumentTextIcon className="h-6 w-6" />
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold tracking-wider uppercase text-white mb-6">
+                Solutions
+              </h3>
+              <ul className="space-y-4">
+                <li><a href="#" className="text-sm hover:text-white transition-colors">Academic Tools</a></li>
+                <li><a href="#" className="text-sm hover:text-white transition-colors">Research Suite</a></li>
+                <li><a href="#" className="text-sm hover:text-white transition-colors">Collaboration Hub</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold tracking-wider uppercase text-white mb-6">
+                Resources
+              </h3>
+              <ul className="space-y-4">
+                <li><a href="#" className="text-sm hover:text-white transition-colors">Documentation</a></li>
+                <li><a href="#" className="text-sm hover:text-white transition-colors">Academic Integrations</a></li>
+                <li><a href="#" className="text-sm hover:text-white transition-colors">API Reference</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold tracking-wider uppercase text-white mb-6">
+                Connect
+              </h3>
+              <ul className="space-y-4">
+                <li><a href="#" className="text-sm hover:text-white transition-colors">LinkedIn</a></li>
+                <li><a href="#" className="text-sm hover:text-white transition-colors">ResearchGate</a></li>
+                <li><a href="#" className="text-sm hover:text-white transition-colors">Academic Partnerships</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-16 pt-8 border-t border-gray-800">
+            <p className="text-xs text-gray-400 text-center">
+              © {new Date().getFullYear()} UnityHub. Open-source academic platform.<br />
+              Developed with ❤️ by Bhavya Wade
             </p>
           </div>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Workflow?
-          </h2>
-          <p className="text-xl mb-10 opacity-90">
-            Join thousands of teams already using LearnNova
-          </p>
-          <Link
-            to="/signup"
-            className="inline-block px-8 py-4 bg-white text-blue-600 rounded-full text-lg font-semibold hover:bg-gray-50 transform hover:scale-105 transition-all duration-300 shadow-lg"
-          >
-            Get Started Free
-          </Link>
-        </div>
-      </section>
+      </footer>
     </div>
   );
 };
-
 const App = () => {
   return (
     <Router>
@@ -225,7 +330,7 @@ const App = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/password-generator" element={<PassportPhotoGenerator />} />
             <Route path="/dictionary" element={<Dictionary />} />
-            <Route path="/compress" element={<Translator />} />
+            <Route path="/news" element={<Translator />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/resume-builder" element={<InputForm />} />
             <Route path="/resume-preview" element={<ResumePreview />} />
@@ -243,7 +348,7 @@ const App = () => {
             <Route path="/passport-photo" element={<PassportPhoto />} />
           </Routes>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
