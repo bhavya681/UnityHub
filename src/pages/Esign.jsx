@@ -1,6 +1,156 @@
 import { useState, useRef } from 'react';
 import SignatureCanvas from 'react-signature-canvas';
 import { ChromePicker } from 'react-color';
+import { Eraser, Undo2, Download, Pen, Palette, Brush } from 'lucide-react';
+
+const Esign = () => {
+  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
+  const [penColor, setPenColor] = useState('#000000');
+  const [penWidth, setPenWidth] = useState(2);
+  const [isErasing, setIsErasing] = useState(false);
+  const [showBackgroundPicker, setShowBackgroundPicker] = useState(false);
+  const [showPenPicker, setShowPenPicker] = useState(false);
+  const sigCanvas = useRef(null);
+
+  const handleBackgroundColorChange = (color) => setBackgroundColor(color.hex);
+  const handlePenColorChange = (color) => {
+    setIsErasing(false);
+    setPenColor(color.hex);
+  };
+  const handlePenWidthChange = (e) => setPenWidth(parseInt(e.target.value));
+
+  const downloadSignature = () => {
+    const canvas = sigCanvas.current.getCanvas();
+    const imageURL = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.href = imageURL;
+    link.download = 'signature.png';
+    link.click();
+  };
+
+  const clearCanvas = () => sigCanvas.current.clear();
+
+  const undoLast = () => {
+    const data = sigCanvas.current.toData();
+    if (data.length > 0) {
+      data.pop();
+      sigCanvas.current.fromData(data);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-gray-100 p-6 flex flex-col items-center pt-[10%]">
+      <h1 className="text-4xl font-bold text-blue-400 mb-6">Digital Signature Studio</h1>
+      
+      <div className="w-full max-w-4xl bg-gray-800 p-6 rounded-xl shadow-lg">
+        <div className="border-2 border-gray-700 rounded-lg overflow-hidden relative">
+          <SignatureCanvas
+            ref={sigCanvas}
+            penColor={isErasing ? backgroundColor : penColor}
+            canvasProps={{ className: "w-full h-64 bg-transparent", style: { backgroundColor } }}
+            minWidth={penWidth}
+            maxWidth={penWidth}
+          />
+        </div>
+
+        {/* Control Panel */}
+        <div className="mt-6 flex flex-wrap gap-4 justify-center">
+          {/* Background Color Picker */}
+          <div className="relative">
+            <button 
+              className="p-2 bg-gray-700 rounded-lg flex items-center gap-2 hover:bg-gray-600 transition-colors"
+              onClick={() => setShowBackgroundPicker(!showBackgroundPicker)}
+              aria-label="Pick background color"
+            >
+              <Palette className="w-5 h-5 text-blue-400" />
+              <div className="w-6 h-6 rounded-full border border-gray-500" style={{ backgroundColor }} />
+            </button>
+            {showBackgroundPicker && (
+              <div className="absolute z-20 mt-2 left-0">
+                <ChromePicker color={backgroundColor} onChange={handleBackgroundColorChange} />
+              </div>
+            )}
+          </div>
+
+          {/* Pen Color Picker */}
+          <div className="relative">
+            <button 
+              className="p-2 bg-gray-700 rounded-lg flex items-center gap-2 hover:bg-gray-600 transition-colors"
+              onClick={() => setShowPenPicker(!showPenPicker)}
+              aria-label="Pick pen color"
+            >
+              <Pen className="w-5 h-5 text-purple-400" />
+              <div className="w-6 h-6 rounded-full border border-gray-500" style={{ backgroundColor: penColor }} />
+            </button>
+            {showPenPicker && (
+              <div className="absolute z-20 mt-2 left-0">
+                <ChromePicker color={penColor} onChange={handlePenColorChange} />
+              </div>
+            )}
+          </div>
+
+          {/* Pen Thickness Selector */}
+          <div className="flex items-center gap-2 bg-gray-700 rounded-lg p-2">
+            <Brush className="w-5 h-5 text-emerald-400" />
+            <select
+              className="bg-transparent px-3 py-1 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 appearance-none"
+              value={penWidth}
+              onChange={handlePenWidthChange}
+              aria-label="Select pen thickness"
+            >
+              <option className='text-black' value={2}>Thin</option>
+              <option className='text-black' value={5}>Medium</option>
+              <option className='text-black' value={10}>Thick</option>
+            </select>
+          </div>
+
+          {/* Erase Mode Toggle */}
+          <button 
+            onClick={() => setIsErasing(!isErasing)} 
+            className={`p-2 rounded-lg ${isErasing ? 'bg-red-500' : 'bg-gray-700'} hover:opacity-80 flex items-center gap-2`}
+            aria-label="Toggle eraser mode"
+          >
+            <Eraser className="w-5 h-5" /> {isErasing ? "Erasing..." : "Erase"}
+          </button>
+
+          {/* Undo Button */}
+          <button 
+            onClick={undoLast} 
+            className="p-2 bg-gray-700 rounded-lg hover:opacity-80 flex items-center gap-2"
+            aria-label="Undo last stroke"
+          >
+            <Undo2 className="w-5 h-5" /> Undo
+          </button>
+
+          {/* Clear Canvas Button */}
+          <button 
+            onClick={clearCanvas} 
+            className="p-2 bg-gray-700 rounded-lg hover:opacity-80 flex items-center gap-2"
+            aria-label="Clear signature canvas"
+          >
+            <Eraser className="w-5 h-5 text-red-400" /> Clear
+          </button>
+
+          {/* Export Button */}
+          <button 
+            onClick={downloadSignature} 
+            className="p-2 bg-blue-500 rounded-lg hover:opacity-80 flex items-center gap-2 text-white"
+            aria-label="Download signature"
+          >
+            <Download className="w-5 h-5" /> Export
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Esign;
+
+{/*
+  import { useState, useRef } from 'react';
+import SignatureCanvas from 'react-signature-canvas';
+import { ChromePicker } from 'react-color';
 
 const Esign = () => {
   const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
@@ -148,3 +298,5 @@ const Esign = () => {
 };
 
 export default Esign;
+
+  */}

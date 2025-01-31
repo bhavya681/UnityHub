@@ -36,25 +36,25 @@ const Translator = () => {
     setSavedArticles(storedArticles);
   }, []);
 
-  const categories = ["technology", "business", "sports", "health", "science", 
-                     "entertainment", "world", "politics", "travel", "food"];
+  const categories = ["technology", "business", "sports", "health", "science",
+    "entertainment", "world", "politics", "travel", "food"];
 
   return (
     <div className="min-h-screen bg-blue-50">
-      <nav className="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-blue-700 shadow-xl z-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="sticky top-0 z-10 bg-gradient-to-r from-blue-600 to-blue-700 shadow-xl z-0">
+        {/* <nav className="sticky top-0  bg-white shadow-sm"> */}
+        <div className="max-w-7xl mx-auto mr-[20px] px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <h1 className="text-white text-xl font-bold">NewsHub Pro</h1>
-            <div className="flex space-x-2 overflow-x-auto pb-2">
+
+            <div className="flex space-x-5 overflow-x-auto pb-2 flex justify-center items-center text-center">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setTopic(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    topic === category 
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${topic === category
                       ? "bg-white text-blue-600 shadow-md"
                       : "text-blue-100 hover:bg-blue-500 hover:text-white"
-                  }`}
+                    }`}
                 >
                   {category.charAt(0).toUpperCase() + category.slice(1)}
                 </button>
@@ -72,21 +72,17 @@ const Translator = () => {
           <p className="text-blue-600">Stay informed with the latest updates</p>
         </header>
 
-        {error && (
-          <div className="bg-red-100 p-4 rounded-lg mb-8 text-red-700">
-            Error: {error}
-          </div>
-        )}
+        
 
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {articles.length > 0 ? (
             articles.map((article, index) => (
-              <article 
+              <article
                 key={index}
                 className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
               >
-                <img 
-                  src={article.image || "https://via.placeholder.com/400x200?text=News+Image"} 
+                <img
+                  src={article.image || "https://via.placeholder.com/400x200?text=News+Image"}
                   alt={article.title}
                   className="w-full h-48 object-cover rounded-t-xl"
                 />
@@ -128,7 +124,7 @@ const Translator = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {savedArticles.length > 0 ? (
               savedArticles.map((article, index) => (
-                <div 
+                <div
                   key={index}
                   className="border border-blue-100 rounded-lg p-4 hover:bg-blue-50 transition-colors"
                 >
