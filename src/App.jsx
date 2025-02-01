@@ -430,7 +430,7 @@ const App = () => {
             <Route path="/contacts" element={<Contact />} />
             <Route path="/url-shortener" element={<UrlShortener />} />
             <Route path="/timezoneconvertor" element={<TimeZoneConverter />} />
-            <Route path="/databreachchecker" element={<DataBreachChecker />} />
+            <Route path="/snapshot-generator" element={<DataBreachChecker />} />
             <Route path="/services" element={<Services />} />
             <Route path="*" element={<Error4U />} />
             <Route path="/cartoon-selfie" element={<PomodoroTimer />} />

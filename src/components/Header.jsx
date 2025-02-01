@@ -8,8 +8,9 @@ import {
   PresentationChartBarIcon, DocumentTextIcon, SparklesIcon,
   UserGroupIcon, PhotoIcon, CurrencyDollarIcon
 } from "@heroicons/react/24/outline";
-import { FaceRetouchingNatural, Newspaper, PhotoAlbumRounded, Quiz, RemoveCircleOutline } from "@mui/icons-material";
+import { FaceRetouchingNatural, Newspaper, PersonOffOutlined, PhotoAlbumRounded, Quiz, RemoveCircleOutline, RestaurantMenuOutlined, Score, Timer3Rounded, TimerOutlined, TimeToLeaveOutlined } from "@mui/icons-material";
 import { PhotoshopPicker } from "react-color";
+import { FaSnapchat } from "react-icons/fa";
 
 
 const Header = () => {
@@ -21,13 +22,15 @@ const Header = () => {
       { to: "/e-sign", icon: DocumentTextIcon, text: "DocuSignPro" },
       { to: "/project-tracker", icon: ClipboardIcon, text: "Project Tracker" },
       { to: "/invoice-generator", icon: DocumentIcon, text: "Invoice Generator" },
-      {to:'/quiz',icon:Quiz,text:'Quiz'}
+      {to:'/quiz',icon:Quiz,text:'Quiz'},
+      {to:'/timezoneconvertor',icon:TimerOutlined,text:'Time Zone Convertor'}
     ],
     "Academic": [
       { to: "/smart-board", icon: PresentationChartBarIcon, text: "Smart Board" },
       { to: "/question-bank", icon: QuestionMarkCircleIcon, text: "Question Bank" },
       { to: "/study-plan", icon: AcademicCapIcon, text: "Study Planner" },
-      { to: "/grade-tracker", icon: ChartBarIcon, text: "Grade Tracker" }
+      { to: "/grade-tracker", icon: ChartBarIcon, text: "Grade Tracker" },
+      {to:"/resume-ats",icon:Score,text:'Resume ATS Score Checker'}
     ],
     "Utilities": [
       { to: "/ai-summarizer", icon: SparklesIcon, text: "Text Summarizer" },
@@ -41,6 +44,7 @@ const Header = () => {
       { to: "/face-cutout", icon: FaceRetouchingNatural, text: "Face Cutout" },
       { to: "/remove-background", icon: RemoveCircleOutline, text: "Remove Background" },
       { to: "/passport-photo", icon: PhotoIcon, text: "Passport-Photo" },
+      // {to:"/snapshot-generator",icon:FaSnapchat,text:'Snapshot generator'}
     ]
   };
 
