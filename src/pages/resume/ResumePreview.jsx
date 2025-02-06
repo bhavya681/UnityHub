@@ -1,145 +1,208 @@
-import { useLocation } from 'react-router-dom';
-import jsPDF from 'jspdf';
-import { useRef } from 'react';
+import React, { useState } from "react";
 
-function ResumePreview() {
-  const { state } = useLocation();
-  const resumeRef = useRef();
+const CoverLetterGenerator = () => {
+  const [formData, setFormData] = useState({
+    applicantName: "",
+    jobProfile: "",
+    companyName: "", 
+    skills: "",
+    experience: "",
+    email: "",
+    phone: "",
+    address: "",
+    achievements: ""
+  });
 
-  const handleDownload = () => {
-    const doc = new jsPDF('portrait', 'pt', 'a4');
-    doc.html(resumeRef.current, {
-      callback: function (pdf) {
-        pdf.save(`${state.name}-resume.pdf`);
-      },
-      x: 10,
-      y: 10,
-    });
+  const [coverLetter, setCoverLetter] = useState("");
+  const [template, setTemplate] = useState("professional");
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const templates = {
+    professional: () => `
+${formData.address}
+${formData.email}
+${formData.phone}
+
+${new Date().toLocaleDateString()}
+
+Hiring Manager
+${formData.companyName}
+
+Dear Hiring Manager,
+
+I am writing to express my strong interest in the ${formData.jobProfile} position at ${formData.companyName}. With ${formData.experience} years of experience and expertise in ${formData.skills}, I am confident in my ability to make significant contributions to your organization.
+
+${formData.achievements}
+
+My technical proficiency in ${formData.skills} has enabled me to consistently deliver high-quality results throughout my career. I am particularly drawn to ${formData.companyName}'s commitment to innovation and excellence, and I am excited about the possibility of bringing my unique blend of skills and experience to your team.
+
+I would welcome the opportunity to discuss how my background aligns with your needs in more detail. Thank you for considering my application.
+
+Best regards,
+${formData.applicantName}
+    `,
+
+    creative: () => `
+${formData.address}
+${formData.email}
+${formData.phone}
+
+${new Date().toLocaleDateString()}
+
+Dear Hiring Team at ${formData.companyName},
+
+I was thrilled to discover the ${formData.jobProfile} opportunity at ${formData.companyName}. As a passionate professional with ${formData.experience} years of experience specializing in ${formData.skills}, I am eager to bring my creative approach and technical expertise to your innovative team.
+
+${formData.achievements}
+
+What excites me most about ${formData.companyName} is your commitment to pushing boundaries and fostering innovation. I believe my background in ${formData.skills} positions me perfectly to contribute to your continued success.
+
+I would love to discuss how my unique perspective and skills could benefit your team.
+
+Warm regards,
+${formData.applicantName}
+    `
+  };
+
+  const generateCoverLetter = () => {
+    const letterTemplate = templates[template];
+    setCoverLetter(letterTemplate());
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-10 px-4">
-      <div ref={resumeRef} className="bg-white p-10 shadow-lg rounded-lg max-w-4xl w-full">
-        {/* Header */}
-        <div className="flex flex-col items-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800">{state.name || "Bhavya Wade"}</h1>
-          <p className="text-gray-600">
-            {state.phone || "7798807904"} | 
-            <a href={`mailto:${state.email}`} className="text-blue-600 hover:underline ml-1">
-              {state.email || "bhavyawade2@gmail.com"}
-            </a>
-            {state.linkedin && (
-              <>
-                {" | "}
-                <a href={state.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
-                  LinkedIn
-                </a>
-              </>
-            )}
-            {state.github && (
-              <>
-                {" | "}
-                <a href={state.github} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
-                  GitHub
-                </a>
-              </>
-            )}
-          </p>
-        </div>
-
-        {/* Education Section */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 border-b-2 border-gray-300 mb-2">Education</h2>
-          <p className="text-gray-700">
-            {state.education || "Vidyavardhinis College of Engineering & Technology, B.E. in Artificial Intelligence and Data Science, 2022-2025"}
-          </p>
-        </div>
-
-        {/* Experience Section */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 border-b-2 border-gray-300 mb-2">Experiences</h2>
-          <div>
-            {state.experience ? (
-              <ul className="list-none space-y-4">
-                {state.experience.split('\n').map((item, index) => (
-                  <li key={index} className="text-gray-700">
-                    <div className="font-semibold">{item.split('—')[0]}</div>
-                    <div className="italic text-gray-600">{item.split('—')[1]}</div>
-                    <div>{item.split('—')[2]}</div>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <div>
-                <div className="font-semibold">Tata Steel — Software Engineer Intern</div>
-                <div className="italic text-gray-600">Boisar, Mumbai, Maharashtra, India</div>
-                <div>June 2023 - July 2023</div>
-                <ul className="list-disc ml-5 text-gray-700">
-                  <li>
-                    Achieved significant improvements in network monitoring by implementing the 'Ping Monitoring System.'
-                  </li>
-                  <li>
-                    Collaborated with the IT team to enhance workplace safety protocols.
-                  </li>
-                  <li>
-                    Analyzed and resolved networking challenges, contributing to seamless IT operations.
-                  </li>
-                </ul>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="px-6 py-8">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Professional Cover Letter Generator</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  name="applicantName"
+                  placeholder="Your Full Name"
+                  value={formData.applicantName}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+                <textarea
+                  name="address"
+                  placeholder="Your Address"
+                  value={formData.address}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  rows="2"
+                />
               </div>
-            )}
+
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  name="jobProfile"
+                  placeholder="Job Position"
+                  value={formData.jobProfile}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                  type="text"
+                  name="companyName"
+                  placeholder="Company Name"
+                  value={formData.companyName}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                  type="text"
+                  name="skills"
+                  placeholder="Key Skills (e.g., React, Python, Project Management)"
+                  value={formData.skills}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                  type="text"
+                  name="experience"
+                  placeholder="Years of Experience"
+                  value={formData.experience}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <textarea
+                name="achievements"
+                placeholder="Key Achievements and Qualifications"
+                value={formData.achievements}
+                onChange={handleInputChange}
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                rows="4"
+              />
+            </div>
+
+            <div className="mt-6 flex justify-center gap-4">
+              <select 
+                value={template}
+                onChange={(e) => setTemplate(e.target.value)}
+                className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="professional">Professional Template</option>
+                <option value="creative">Creative Template</option>
+              </select>
+
+              <button
+                onClick={generateCoverLetter}
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg"
+              >
+                Generate Cover Letter
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Projects Section */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 border-b-2 border-gray-300 mb-2">Projects</h2>
-          <ul className="list-none space-y-4 text-gray-700">
-            {state.projects
-              ? state.projects.split('\n').map((item, index) => (
-                  <li key={index} className="font-semibold">
-                    {item.split('|')[0]}
-                    <div className="italic text-gray-600">{item.split('|')[1]}</div>
-                  </li>
-                ))
-              : (
-                <>
-                  <li>
-                    <div className="font-semibold">React Fast Food Hub</div>
-                    <div className="italic text-gray-600">Technologies: React.js, Tailwind CSS, JavaScript, React Context API</div>
-                    <ul className="list-disc ml-5">
-                      <li>Implemented key features like add to cart, product details, navigation, advanced filters, and search.</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div className="font-semibold">Full-Stack Social Site - CodeBuddy</div>
-                    <div className="italic text-gray-600">Technologies: MongoDB, Express.js, React, Node.js, Tailwind CSS, Socket API</div>
-                    <ul className="list-disc ml-5">
-                      <li>Led the development of developer profiles, real-time chat, and social feed features.</li>
-                    </ul>
-                  </li>
-                </>
-              )}
-          </ul>
-        </div>
-
-        {/* Skills Section */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 border-b-2 border-gray-300 mb-2">Skills</h2>
-          <p className="text-gray-700">{state.skills || "React, JavaScript, Tailwind CSS, Node.js, MongoDB"}</p>
-        </div>
-
-        {/* Download Button */}
-        <div className="flex justify-center mt-6">
-          <button
-            onClick={handleDownload}
-            className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
-          >
-            Download Resume as PDF
-          </button>
+          {coverLetter && (
+            <div className="mt-8 p-6 bg-gray-50 border-t border-gray-200">
+              <h3 className="text-xl font-semibold mb-4">Your Professional Cover Letter:</h3>
+              <div className="bg-white p-6 rounded-lg border border-gray-300 shadow-sm">
+                <pre className="whitespace-pre-wrap font-sans text-gray-800">{coverLetter}</pre>
+              </div>
+              <button
+                onClick={() => navigator.clipboard.writeText(coverLetter)}
+                className="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-900 transition-colors"
+              >
+                Copy to Clipboard
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default ResumePreview;
+export default CoverLetterGenerator;

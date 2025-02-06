@@ -11,6 +11,7 @@ import {
 import { FaceRetouchingNatural, Newspaper, PersonOffOutlined, PhotoAlbumRounded, Quiz, RemoveCircleOutline, RestaurantMenuOutlined, Score, Timer3Rounded, TimerOutlined, TimeToLeaveOutlined } from "@mui/icons-material";
 import { PhotoshopPicker } from "react-color";
 import { FaSnapchat } from "react-icons/fa";
+import { LetterTextIcon } from "lucide-react";
 
 
 const Header = () => {
@@ -30,7 +31,8 @@ const Header = () => {
       { to: "/question-bank", icon: QuestionMarkCircleIcon, text: "Question Bank" },
       { to: "/study-plan", icon: AcademicCapIcon, text: "Study Planner" },
       { to: "/grade-tracker", icon: ChartBarIcon, text: "Grade Tracker" },
-      {to:"/resume-ats",icon:Score,text:'Resume ATS Score Checker'}
+      {to:"/resume-ats",icon:Score,text:'Resume ATS Score Checker'},
+      {to:'/resume-preview',icon:LetterTextIcon,text:'Cover Letter Generator'}
     ],
     "Utilities": [
       { to: "/ai-summarizer", icon: SparklesIcon, text: "Text Summarizer" },
