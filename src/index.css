@@ -26,7 +26,21 @@
     text-align: center;
     background-color: #f9f9f9;
   }
+  .react-flow__controls button {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    padding: 0.25rem;
+    margin: 2px;
+  }
   
+  .react-flow__controls button:hover {
+    background-color: #f8fafc;
+  }
+  
+  .react-flow__edge-path {
+    fill: none;
+  }
   .predictions {
     margin-top: 20px;
   }

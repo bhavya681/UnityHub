@@ -38,6 +38,8 @@ import {
   BriefcaseIcon, CodeBracketIcon
 } from '@heroicons/react/24/outline';
 import { useRef,useEffect } from "react";
+import ImageEditor from "./pages/ImageEditor";
+import SystemDesign from "./pages/SystemDesign";
 const Home = () => {
 
   const scrollRef = useRef(null);
@@ -409,6 +411,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/e-sign" element={<Esign />} />
             <Route path="/smart-board" element={<SmartBoard />} />
+            <Route path="/screenshort-edit" element={<ImageEditor />} />
             <Route path="/question-bank" element={<QuestionBankGenerator />} />
             <Route path="/ai-summarizer" element={<AISummarizer />} />
             <Route path="/contact" element={<Contact />} />
@@ -430,13 +433,17 @@ const App = () => {
             <Route path="/contacts" element={<Contact />} />
             <Route path="/url-shortener" element={<UrlShortener />} />
             <Route path="/timezoneconvertor" element={<TimeZoneConverter />} />
-            <Route path="/snapshot-generator" element={<DataBreachChecker />} />
             <Route path="/services" element={<Services />} />
             <Route path="*" element={<Error4U />} />
             <Route path="/cartoon-selfie" element={<PomodoroTimer />} />
             <Route path="/face-cutout" element={<Markdownreviewer />} />
             <Route path="/remove-background" element={<QrCodeGenerator />} />
             <Route path="/passport-photo" element={<PassportPhoto />} />
+
+            
+            <Route path="/system-design" element={<SystemDesign />} />
+
+            <Route path="/snapshot-generator" element={<DataBreachChecker />} />
           </Routes>
         </main>
         {/* <Footer /> */}

@@ -8,7 +8,7 @@ import {
   PresentationChartBarIcon, DocumentTextIcon, SparklesIcon,
   UserGroupIcon, PhotoIcon, CurrencyDollarIcon
 } from "@heroicons/react/24/outline";
-import { FaceRetouchingNatural, Newspaper, PersonOffOutlined, PhotoAlbumRounded, Quiz, RemoveCircleOutline, RestaurantMenuOutlined, Score, Timer3Rounded, TimerOutlined, TimeToLeaveOutlined } from "@mui/icons-material";
+import { EditRoadTwoTone, FaceRetouchingNatural, Newspaper, PersonOffOutlined, PhotoAlbumRounded, Quiz, RemoveCircleOutline, RestaurantMenuOutlined, Score, ScreenshotMonitor, Timer3Rounded, TimerOutlined, TimeToLeaveOutlined } from "@mui/icons-material";
 import { PhotoshopPicker } from "react-color";
 import { FaSnapchat } from "react-icons/fa";
 import { LetterTextIcon } from "lucide-react";
@@ -39,13 +39,15 @@ const Header = () => {
       { to: "/expense-tracker", icon: CurrencyDollarIcon, text: "Expense Tracker" },
       { to: "/password-generator", icon: LockClosedIcon, text: "Password Generator" },
       { to: "/dictionary", icon: BookOpenIcon, text: "Dictionary" },
-      { to: "/url-shortener", icon: LinkIcon, text: "URL Shortener" }
+      { to: "/url-shortener", icon: LinkIcon, text: "URL Shortener" },
+      {to:'/snapshot-generator',icon:EditRoadTwoTone,text:"Snapshot-Editor"}
     ],
     "Ai Tools":[
       { to: "/cartoon-selfie", icon: PhotoAlbumRounded, text: "Cartoon Selfie" },
       { to: "/face-cutout", icon: FaceRetouchingNatural, text: "Face Cutout" },
       { to: "/remove-background", icon: RemoveCircleOutline, text: "Remove Background" },
       { to: "/passport-photo", icon: PhotoIcon, text: "Passport-Photo" },
+      {to:"/screenshort-edit",icon:ScreenshotMonitor,text:"Image Editor"}
       // {to:"/snapshot-generator",icon:FaSnapchat,text:'Snapshot generator'}
     ]
   };

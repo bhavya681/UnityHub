@@ -193,6 +193,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import { saveAs } from "file-saver";
 import { motion } from "framer-motion";
+import { MdDelete } from "react-icons/md";
 
 const SmartBoard = () => {
   const [background, setBackground] = useState("#ffffff");
@@ -319,7 +320,7 @@ const SmartBoard = () => {
             onClick={clearCanvas}
             className="px-5 py-2.5 bg-white border-2 border-gray-200 rounded-xl hover:border-red-300 text-gray-700 flex items-center gap-2"
           >
-            🗑️ Clear
+      <MdDelete size={18}/> Clear
           </motion.button>
 
           {/* Customization */}
