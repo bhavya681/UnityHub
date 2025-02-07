@@ -47,8 +47,8 @@ const Header = () => {
       { to: "/face-cutout", icon: FaceRetouchingNatural, text: "Face Cutout" },
       { to: "/remove-background", icon: RemoveCircleOutline, text: "Remove Background" },
       { to: "/passport-photo", icon: PhotoIcon, text: "Passport-Photo" },
-      {to:"/screenshort-edit",icon:ScreenshotMonitor,text:"Image Editor"}
-      // {to:"/snapshot-generator",icon:FaSnapchat,text:'Snapshot generator'}
+      {to:"/screenshort-edit",icon:ScreenshotMonitor,text:"Image Editor"},
+      {to:"/system-design",icon:FaSnapchat,text:'System Design'}
     ]
   };
 
