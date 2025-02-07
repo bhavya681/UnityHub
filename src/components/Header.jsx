@@ -8,7 +8,7 @@ import {
   PresentationChartBarIcon, DocumentTextIcon, SparklesIcon,
   UserGroupIcon, PhotoIcon, CurrencyDollarIcon
 } from "@heroicons/react/24/outline";
-import { EditRoadTwoTone, FaceRetouchingNatural, Newspaper, PersonOffOutlined, PhotoAlbumRounded, Quiz, RemoveCircleOutline, RestaurantMenuOutlined, Score, ScreenshotMonitor, Timer3Rounded, TimerOutlined, TimeToLeaveOutlined } from "@mui/icons-material";
+import { DesignServices, EditRoadTwoTone, FaceRetouchingNatural, Newspaper, PersonOffOutlined, PhotoAlbumRounded, Quiz, RemoveCircleOutline, RestaurantMenuOutlined, Score, ScreenshotMonitor, Timer3Rounded, TimerOutlined, TimeToLeaveOutlined } from "@mui/icons-material";
 import { PhotoshopPicker } from "react-color";
 import { FaSnapchat } from "react-icons/fa";
 import { LetterTextIcon } from "lucide-react";
@@ -48,7 +48,7 @@ const Header = () => {
       { to: "/remove-background", icon: RemoveCircleOutline, text: "Remove Background" },
       { to: "/passport-photo", icon: PhotoIcon, text: "Passport-Photo" },
       {to:"/screenshort-edit",icon:ScreenshotMonitor,text:"Image Editor"},
-      {to:"/system-design",icon:FaSnapchat,text:'System Design'}
+      {to:"/system-design",icon:DesignServices,text:'System Design'}
     ]
   };
 
