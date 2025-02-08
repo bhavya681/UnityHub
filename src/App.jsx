@@ -870,7 +870,6 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/e-sign" element={<Esign />} />
             <Route path="/smart-board" element={<SmartBoard />} />
-            <Route path="/screenshort-edit" element={<ImageEditor />} />
             <Route path="/question-bank" element={<QuestionBankGenerator />} />
             <Route path="/ai-summarizer" element={<AISummarizer />} />
             <Route path="/contact" element={<Contact />} />
@@ -900,6 +899,7 @@ const App = () => {
             <Route path="/passport-photo" element={<PassportPhoto />} />
             <Route path="/system-design" element={<SystemDesign />} />
             <Route path="/snapshot-generator" element={<DataBreachChecker />} />
+            <Route path="/screenshort-edit" element={<ImageEditor />} />
           </Routes>
         </main>
         {/* <Footer /> */}
