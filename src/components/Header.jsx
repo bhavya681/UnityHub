@@ -8,7 +8,7 @@ import {
   PresentationChartBarIcon, DocumentTextIcon, SparklesIcon,
   UserGroupIcon, PhotoIcon, CurrencyDollarIcon
 } from "@heroicons/react/24/outline";
-import { DesignServices, EditRoadTwoTone, FaceRetouchingNatural, Newspaper, PersonOffOutlined, PhotoAlbumRounded, Quiz, RemoveCircleOutline, RestaurantMenuOutlined, Score, ScreenshotMonitor, Timer3Rounded, TimerOutlined, TimeToLeaveOutlined } from "@mui/icons-material";
+import { CompareTwoTone, DesignServices, EditRoadTwoTone, FaceRetouchingNatural, Gamepad, Newspaper, PersonOffOutlined, PhotoAlbumRounded, Quiz, RemoveCircleOutline, RestaurantMenuOutlined, Score, ScoreOutlined, ScreenshotMonitor, Timer3Rounded, TimerOutlined, TimeToLeaveOutlined } from "@mui/icons-material";
 import { PhotoshopPicker } from "react-color";
 import { FaSnapchat } from "react-icons/fa";
 import { LetterTextIcon } from "lucide-react";
@@ -49,6 +49,11 @@ const Header = () => {
       { to: "/passport-photo", icon: PhotoIcon, text: "Passport-Photo" },
       {to:"/screenshort-edit",icon:ScreenshotMonitor,text:"Image Editor"},
       {to:"/system-design",icon:DesignServices,text:'System Design'}
+    ],
+    "Fun":[
+      {to:"/compare",icon:CompareTwoTone,text:"Text Compare"},
+      {to:"/stock-suffer",icon:Gamepad,text:"Stock Suffer"},
+      {to:"/sudoku-solver",icon:ScoreOutlined,text:"Sudoku Solver"}
     ]
   };
 

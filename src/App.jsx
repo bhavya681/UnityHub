@@ -498,6 +498,9 @@ import {
   BriefcaseIcon, CodeBracketIcon
 } from '@heroicons/react/24/outline';
 import { useRef, useEffect } from "react";
+import CodeCompare from "./components/CodeCompare";
+import StockSurfer from "./components/StockSuffer";
+import SudokuSolver from "./components/SudokuSolver";
 
 const Home = () => {
   const scrollRef = useRef(null);
@@ -834,7 +837,8 @@ const Home = () => {
     </div>
   );
 };
-
+const beforeCode = `function greet() {\n  console.log("Hello, World!");\n}`;
+const afterCode = `const greet = () => {\n  console.log("Hello, Universe!");\n}`;
 const App = () => {
   return (
     <Router>
@@ -900,7 +904,10 @@ const App = () => {
             <Route path="/system-design" element={<SystemDesign />} />
             <Route path="/snapshot-generator" element={<DataBreachChecker />} />
             <Route path="/screenshort-edit" element={<ImageEditor />} />
-          </Routes>
+            <Route path="/compare" element={<CodeCompare before="before.png" after="after.png" />} />
+            <Route path="/stock-suffer" element={<StockSurfer/>}/>
+            <Route path="/sudoku-solver" element={<SudokuSolver/>}/>
+                      </Routes>
         </main>
         {/* <Footer /> */}
       </div>

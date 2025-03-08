@@ -25,10 +25,12 @@
     "browser-image-compression": "^2.0.2",
     "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",
+    "diff": "^7.0.0",
     "file-saver": "^2.0.5",
     "framer-motion": "^11.18.2",
     "helmet": "^8.0.0",
     "heroicons": "^2.2.0",
+    "highlight.js": "^11.11.1",
     "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.1",
@@ -55,6 +57,7 @@
     "react-sketch-canvas": "^6.2.0",
     "reactflow": "^11.11.4",
     "tailwindcss": "^3.4.3",
+    "use-sound": "^5.0.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
