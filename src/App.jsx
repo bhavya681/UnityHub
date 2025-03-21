@@ -501,6 +501,7 @@ import { useRef, useEffect } from "react";
 import CodeCompare from "./components/CodeCompare";
 import StockSurfer from "./components/StockSuffer";
 import SudokuSolver from "./components/SudokuSolver";
+import QRCodeGenerator from "./pages/QRCodeGenerator";
 
 const Home = () => {
   const scrollRef = useRef(null);
@@ -907,6 +908,7 @@ const App = () => {
             <Route path="/compare" element={<CodeCompare before="before.png" after="after.png" />} />
             <Route path="/stock-suffer" element={<StockSurfer/>}/>
             <Route path="/sudoku-solver" element={<SudokuSolver/>}/>
+            <Route path="/qrcode-generate" element={<QRCodeGenerator/>}/>
                       </Routes>
         </main>
         {/* <Footer /> */}

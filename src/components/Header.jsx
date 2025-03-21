@@ -11,7 +11,7 @@ import {
 import { CompareTwoTone, DesignServices, EditRoadTwoTone, FaceRetouchingNatural, Gamepad, Newspaper, PersonOffOutlined, PhotoAlbumRounded, Quiz, RemoveCircleOutline, RestaurantMenuOutlined, Score, ScoreOutlined, ScreenshotMonitor, Timer3Rounded, TimerOutlined, TimeToLeaveOutlined } from "@mui/icons-material";
 import { PhotoshopPicker } from "react-color";
 import { FaSnapchat } from "react-icons/fa";
-import { LetterTextIcon } from "lucide-react";
+import { LetterTextIcon, QrCode } from "lucide-react";
 
 
 const Header = () => {
@@ -24,7 +24,8 @@ const Header = () => {
       { to: "/project-tracker", icon: ClipboardIcon, text: "Project Tracker" },
       { to: "/invoice-generator", icon: DocumentIcon, text: "Invoice Generator" },
       {to:'/quiz',icon:Quiz,text:'Quiz'},
-      {to:'/timezoneconvertor',icon:TimerOutlined,text:'Time Zone Convertor'}
+      {to:'/timezoneconvertor',icon:TimerOutlined,text:'Time Zone Convertor'},
+      {to:'/qrcode-generate',icon:QrCode,text:'Qr Code Generator'}
     ],
     "Academic": [
       { to: "/smart-board", icon: PresentationChartBarIcon, text: "Smart Board" },
